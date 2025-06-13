@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Find the Prize Game</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      text-align: center;
+      padding: 50px;
+      background: linear-gradient(145deg, #fdf6f0, #e0f7fa); /* soft pastel gradient */
+      color: #333;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+      color: #4a148c; /* deep purple */
+    }
+
+    .box-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+
+    .box {
+      width: 120px;
+      height: 120px;
+      background: #e0e7ff; /* soft indigo */
+      border: 3px solid #94a3b8;
+      border-radius: 12px;
+      font-size: 2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+
+    .box:hover {
+      background: #c7d2fe;
+      transform: translateY(-6px);
+    }
+
+    label::after {
+      display: block;
+      font-size: 2.2rem;
+      line-height: 120px;
+      color: #1f2937;
+    }
+
+    /* Prize in Box 2 */
+    #box2:checked ~ .box-container label[for="box2"]::after {
+      content: "🏆";
+    }
+
+    /* Wrong guesses show ❌ */
+    #box1:checked ~ .box-container label[for="box1"]::after,
+    #box3:checked ~ .box-container label[for="box3"]::after {
+      content: "❌";
+    }
+
+    /* Selected box highlight */
+    #box1:checked ~ .box-container label[for="box1"],
+    #box2:checked ~ .box-container label[for="box2"],
+    #box3:checked ~ .box-container label[for="box3"] {
+      background-color: #fff8dc; /* light warm yellow */
+      border-color: #fbc02d;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎯 Find the Prize</h1>
+
+  <!-- Hidden radio buttons -->
+  <input type="radio" id="box1" name="guess">
+  <input type="radio" id="box2" name="guess">
+  <input type="radio" id="box3" name="guess">
+
+  <!-- Clickable labels as boxes -->
+  <div class="box-container">
+    <label class="box" for="box1"></label>
+    <label class="box" for="box2"></label>
+    <label class="box" for="box3"></label>
+  </div>
+</body>
+</html>
